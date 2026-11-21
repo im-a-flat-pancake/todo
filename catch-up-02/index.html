@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo for ___</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Todo for ___</h1>
+    <form id="add-form">
+      <label for="task-name">New task</label>
+      <div class="add-row">
+        <input id="task-name" type="text" required>
+        <button type="submit">Add</button>
+      </div>
+    </form>
+    <p id="count" role="status"></p>
+    <div class="filters" role="group" aria-label="Filter tasks">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="active" aria-pressed="false">Active</button>
+      <button type="button" data-filter="done" aria-pressed="false">Done</button>
+    </div>
+    <p id="empty"></p>
+    <ul id="tasks" aria-label="Tasks"></ul>
+  </main>
+</body>
+</html>

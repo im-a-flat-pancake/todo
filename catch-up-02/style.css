@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f7f2;
+  color: #172c25;
+  font: 1rem/1.5 system-ui, sans-serif;
+}
+
+main {
+  max-width: 34rem;
+  margin: auto;
+  padding: 1.5rem 1rem;
+}
+
+h1 {
+  margin: 0 0 1.25rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+.add-row,
+.filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-row {
+  margin-top: 0.25rem;
+}
+
+button,
+input {
+  min-height: 48px;
+  border: 1px solid #687b72;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+}
+
+button {
+  background: white;
+  color: inherit;
+  cursor: pointer;
+}
+
+#task-name {
+  flex: 1;
+  min-width: 0;
+}
+
+button[type="submit"],
+button[aria-pressed="true"] {
+  background: #215540;
+  color: white;
+}
+
+.filters button {
+  flex: 1;
+}
+
+#tasks {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+#tasks li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border: 1px solid #cbd5cd;
+  border-radius: 0.5rem;
+}
+
+#tasks label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  min-height: 48px;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+#tasks input {
+  flex: none;
+  min-height: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: 0;
+  accent-color: #215540;
+}
+
+#tasks input:checked + span {
+  text-decoration: line-through;
+}
+
+:focus-visible {
+  outline: 3px solid #835400;
+  outline-offset: 2px;
+}
