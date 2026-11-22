@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To-Do for Mom</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <p class="eyebrow">A little help for today</p>
+      <h1>To-Do for Mom</h1>
+      <p class="subtitle">Keep track of what needs doing.</p>
+    </header>
+
+    <form class="add-form" id="add-form">
+      <label class="visually-hidden" for="task-input">New task</label>
+      <input id="task-input" name="task" type="text" maxlength="120" placeholder="Add a task…" autocomplete="off" required>
+      <button class="add-button" type="submit">Add task</button>
+    </form>
+
+    <section class="task-section" aria-label="Tasks">
+      <div class="list-heading">
+        <h2>Your list</h2>
+        <p id="task-count" class="task-count" aria-live="polite">0 tasks left</p>
+      </div>
+
+      <nav class="filters" aria-label="Filter tasks">
+        <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active</button>
+        <button class="filter-button" type="button" data-filter="done" aria-pressed="false">Done</button>
+      </nav>
+
+      <ul id="task-list" class="task-list" aria-label="To-do tasks"></ul>
+      <p id="empty-message" class="empty-message">No tasks yet. Add one above.</p>
+    </section>
+  </main>
+</body>
+</html>
