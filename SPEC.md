@@ -19,3 +19,16 @@
 - [ ] Tasks are still there after a reload.
 
 ## Not now
+
+## Change requests
+
+### 2026-11-21: Search for tasks
+- Who: Mom.
+- What: Search for tasks.
+- Why: The task list is too long.
+- When: In the morning and afternoon.
+- Where: At home and at the market.
+- How: A usable search bar appears under the “Add task” button and filters the task list as Mom types.
+- Done when:
+  - [ ] A search bar appears under the “Add task” button.
+  - [ ] Searching filters the tasks to match the search text.

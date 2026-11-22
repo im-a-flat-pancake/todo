@@ -3,6 +3,7 @@
 const STORAGE_KEY = "todo-app";
 const addForm = document.querySelector("#add-form");
 const taskInput = document.querySelector("#task-input");
+const taskSearch = document.querySelector("#task-search");
 const taskList = document.querySelector("#task-list");
 const taskCount = document.querySelector("#task-count");
 const emptyMessage = document.querySelector("#empty-message");
@@ -35,9 +36,13 @@ function renderTasks() {
   taskList.replaceChildren();
 
   const visibleTasks = tasks.filter((task) => {
-    if (currentFilter === "active") return !task.done;
-    if (currentFilter === "done") return task.done;
-    return true;
+    const matchesFilter = currentFilter === "active"
+      ? !task.done
+      : currentFilter === "done"
+        ? task.done
+        : true;
+    const matchesSearch = task.text.toLocaleLowerCase().includes(taskSearch.value.trim().toLocaleLowerCase());
+    return matchesFilter && matchesSearch;
   });
 
   for (const task of visibleTasks) {
@@ -77,10 +82,16 @@ function renderTasks() {
   const remaining = tasks.filter((task) => !task.done).length;
   taskCount.textContent = `${remaining} ${remaining === 1 ? "task" : "tasks"} left`;
   emptyMessage.hidden = visibleTasks.length !== 0;
-  emptyMessage.textContent = tasks.length === 0
-    ? "No tasks yet. Add one above."
-    : "No tasks in this filter.";
+  if (tasks.length === 0) {
+    emptyMessage.textContent = "No tasks yet. Add one above.";
+  } else if (taskSearch.value.trim()) {
+    emptyMessage.textContent = "No tasks match your search.";
+  } else {
+    emptyMessage.textContent = "No tasks in this filter.";
+  }
 }
+
+taskSearch.addEventListener("input", renderTasks);
 
 addForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -90,6 +101,7 @@ addForm.addEventListener("submit", (event) => {
   tasks.push({ id: crypto.randomUUID(), text, done: false });
   saveTasks();
   taskInput.value = "";
+  taskSearch.value = "";
   currentFilter = "all";
   updateFilterButtons();
   renderTasks();
